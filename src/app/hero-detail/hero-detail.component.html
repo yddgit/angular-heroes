@@ -1,0 +1,13 @@
+<div *ngIf="hero">
+  <!-- 使用内置的UppercasePipe对hero.name进行处理, Pipe可以用于格式化字符、金额、日期等显示数据 -->
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <!-- 将hero.name和input中的值进行双向绑定two-way binding -->
+    <!-- 需要引入FormsModule, 参见: app.module.ts -->
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </label>
+  </div>
+</div>
+  
