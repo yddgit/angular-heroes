@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms' // <-- NgModel需要引入的类
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroService } from './hero.service';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    HeroService
+  ],// 创建单例，可注入其他Component
   bootstrap: [AppComponent]
 })
 export class AppModule { }
