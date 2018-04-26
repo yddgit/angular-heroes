@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common'
-import { HeroService } from '../hero.service'
+import { Location } from '@angular/common';
+import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
 
 @Component({
@@ -24,6 +24,14 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
+    // route.snapshot是component创建后路由信息的静态映像
+    // +运算符将string转为number
     const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
