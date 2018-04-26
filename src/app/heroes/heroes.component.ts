@@ -11,16 +11,7 @@ import { HeroService } from '../hero.service';
  * export component, 这样就可以在其他地方import这个component
  */
 export class HeroesComponent implements OnInit {
-  /*
-  hero: Hero = {
-    id: 1,
-    name: "Windstorm"
-  };
-  */
-
   heroes: Hero[];
-
-  selectedHero: Hero;
 
   // 创建HeroeComponent时，DI模块就会把HeroService的实例通过这个参数注入
   constructor(private heroService: HeroService) {
@@ -33,9 +24,11 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  /*
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
+  */
 
   getHeroes(): void {
     // this.heroes = this.heroService.getHeroes();
