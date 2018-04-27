@@ -1,0 +1,18 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <!-- heroes$的写法是一种惯例，指这个对象是一个Observable对象，不是一个真实的对象 -->
+    <!-- 可以使用AsyncPipe对这个Observable对象进行处理
+      async会subscribe这个Observable对象，返回真正的数据
+      这样就不用在Component中调用了
+    -->
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
